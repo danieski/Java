@@ -37,10 +37,14 @@ class Empleado{
         GregorianCalendar calendario=new GregorianCalendar(agno, mes-1,dia);
         
         altaContrato=calendario.getTime();
+        
+        ++IdSiguiente;
+        
+        Id=IdSiguiente;
           
     }
     public String dameNombre() {
-        return nombre;
+        return nombre + " id: " + Id;
     }
     public double dameSueldo(){
         return sueldo;
@@ -56,8 +60,27 @@ class Empleado{
         
         sueldo+=aumento;
     }
-    
+    private int Id;
+    private static int IdSiguiente=1;
     private String nombre;
     private double sueldo;
     private Date altaContrato;
+}
+
+class Jefatura extends Empleado{
+    public Jefatura(String nom, double sue, int agno, int mes, int dia){
+        super (nom, sue,agno,mes,dia);
+    }
+    
+    public void estableceIncentivo(double b){
+        incentivo=b;
+    }
+    private double incentivo;
+    public double dameSoueldo(){
+        double sueldoJefe=super.dameSueldo(); //llama a dame sueldo de la clase Empleado
+        
+        return sueldoJefe + incentivo;
+        
+    }
+    
 }

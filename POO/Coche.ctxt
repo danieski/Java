@@ -1,13 +1,15 @@
 #BlueJ class context
 comment0.target=Coche
-comment0.text=\n\ Write\ a\ description\ of\ class\ Coche\ here.\n\ \n\ @author\ (your\ name)\ \n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment0.text=\r\n\ Write\ a\ description\ of\ class\ Coche\ here.\r\n\ \r\n\ @author\ (your\ name)\ \r\n\ @version\ (a\ version\ number\ or\ a\ date)\r\n
 comment1.params=
 comment1.target=Coche()
-comment1.text=\n\ Constructor\ for\ objects\ of\ class\ Coche\n
+comment1.text=\r\n\ Constructor\ for\ objects\ of\ class\ Coche\r\n
 comment2.params=
 comment2.target=java.lang.String\ dime_peso()
 comment3.params=
 comment3.target=void\ establece_color()
 comment4.params=
 comment4.target=java.lang.String\ dime_color()
-numComments=5
+comment5.params=
+comment5.target=java.lang.String\ dime_general()
+numComments=6

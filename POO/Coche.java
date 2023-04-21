@@ -33,5 +33,7 @@ public class Coche
     public String dime_color(){
         return "El color del coche es " + color;
     }
-
+    public String dime_general(){
+        return "El coche tiene " + ruedas +" ruedas y pesa " + peso + " kilos. " ;
+    }
 }
