@@ -17,12 +17,30 @@ public class Uso_Empleado
         System.out.println("Nombre :" + empleado1.dameNombre() + "Sueldo :" + 
         empleado1.dameSueldo() + " Alta: " + empleado1.dameFechaContrato());
     */
-       Empleado[] misEmpleados=new Empleado[3];
+       Jefatura jefe_RRHH=new Jefatura("Daniel Esquivel",  9999, 2023 , 11 , 12);
+       //Creamos el objeto
+       jefe_RRHH.estableceIncentivo(999999);
+       //para llamarlo como jefe_RRHHJg
+       Empleado[] misEmpleados=new Empleado[4];
        misEmpleados[0]=new Empleado("Paco Gomez", 9000, 1999, 12, 10);
        misEmpleados[1]=new Empleado("Ana Gomez", 2000, 1993, 11, 12);
+       misEmpleados[2]=jefe_RRHH; //Poliformismo en accion. Principio de sustitucion
+       misEmpleados[3]=new Jefatura("Maria", 10000, 2020,11, 9);
+       //Poliformismo right there
        
-       for (int x=0; x<2; x++){
-           System.out.println("Nombre: " + misEmpleados[x].dameNombre());
+       //Refundicion cambio de tipos de variables
+       /*
+       double num1=7.5;
+       int num2=(int) num1;
+       */
+       //Casting o refundicion
+       
+       Jefatura jefa_ventas=(Jefatura) misEmpleados[3];
+       //Combertimos el objeto de tipo Empleados en uno de tipo Jefatura
+       jefa_ventas.estableceIncentivo(5000);
+       //Con esto podemos llamar a los metodos de la clase empleado
+       for (int x=0; x<4; x++){
+           System.out.println("Nombre: " + misEmpleados[x].dameNombre() + "\n Sueldo: " + misEmpleados[x].dameSueldo() + " \n Fecha alta: " + misEmpleados[x].dameFechaContrato());
            
        }
     }
@@ -76,7 +94,7 @@ class Jefatura extends Empleado{
         incentivo=b;
     }
     private double incentivo;
-    public double dameSoueldo(){
+    public double dameSueldo(){
         double sueldoJefe=super.dameSueldo(); //llama a dame sueldo de la clase Empleado
         
         return sueldoJefe + incentivo;
