@@ -11,9 +11,7 @@ public class Coche
     private int ruedas;
     private int peso;
     String color;
-    /**
-     * Constructor for objects of class Coche
-     */
+
     public Coche()
     {
         // initialise instance variables
