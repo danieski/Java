@@ -6,11 +6,14 @@ public class Empleado extends Persona{
         this.sueldo=sueldo;
         this.rol=rol;
     }
-    public String dameSueldo(){ //Estos son metodos GETTER
-        return "\nSueldo: " + sueldo;
+    public int dameSueldo(){ //Estos son metodos GETTER
+        return sueldo;
     }
     public String dameRol(){ //Estos son metodos GETTER
-        return "\nRol: " + rol;
+        return rol;
     }
-    
+    public String mostrarDatos(){
+        return "Nombre: " + nombre + " Descripcion: " + descripcion + "\nRol: " + rol + " Sueldo: " + sueldo;
+    }
+
 }
