@@ -1,10 +1,11 @@
+
 public class productor {
-    public String nombre;
-    public boolean esGrande;
-    public double extensionTotal;
-    //public String[] productos;
+    private String nombre;
+    private boolean esGrande;
+    private double extensionTotal;
+    public String[] productos;
     //como meto un array en un objeto
-    String[] productos = {"naranjas", "limones", "manzanas"}; 
+    //String[] productos = {"naranjas", "limones", "manzanas"}; 
 
     //Constructor
     public productor(String nombre, boolean esGrande,double extensionTotal,String[] productos){
@@ -14,7 +15,7 @@ public class productor {
         this.productos=productos;
     }
     //Objeto productor
-    productor productorCoperativa=new productor("Fernando",false,4,productos); //Creo que aqui falta la lista de productos
+    //productor productorCoperativa=new productor("Fernando",false,4,productos); //Creo que aqui falta la lista de productos
     
     //getter y setters para los atributos
     public String getNombre(){
@@ -31,15 +32,15 @@ public class productor {
     public void setExtension(double extensionTotal){
         this.extensionTotal=extensionTotal;
     }
-    public String getListaProductos(){
-        return "Lista productos";
-    }
-    public String[] getProductos() {
-        return productos;
-    }
+
     public void setProductos(String[] productos) {
         this.productos= productos;
     }
+
+    public String[] getProductos() {
+        return productos;
+    }
+   
     
 
     public boolean esPequenoProductor(){
