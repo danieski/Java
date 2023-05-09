@@ -8,16 +8,34 @@ public class productor {
     //String[] productos = {"naranjas", "limones", "manzanas"}; 
 
     //Constructor
-    public productor(String nombre, boolean esGrande,double extensionTotal,String[] productos){
+    public productor(String nombre,double extensionTotal,String[] productos){
         this.nombre=nombre;
-        this.esGrande=esGrande;
         this.extensionTotal=extensionTotal;
         this.productos=productos;
+
+        if (extensionTotal > 5){
+            this.esGrande= true;
+            }
+            else {
+            this.esGrande= false;
+            }
+
     }
-    //Objeto productor
-    //productor productorCoperativa=new productor("Fernando",false,4,productos); //Creo que aqui falta la lista de productos
+    //Metodo setter que varia el tipo de productor.
+    public void setEsGrande(Boolean esGrande){
+        this.esGrande = esGrande;
+    }
     
     //getter y setters para los atributos
+    public String getEsGrande(){
+        if (esGrande == true) {
+           return " Es gran productor";
+
+        }
+        else{
+            return " Es peque productor";
+        }
+    }
     public String getNombre(){
         return nombre;
     }
@@ -43,14 +61,6 @@ public class productor {
    
     
 
-    public boolean esPequenoProductor(){
-        
-        if (extensionTotal > 5){
-        return false;
-        }
-        else {
-            return true;
-        }
-    }
+
     
 }
