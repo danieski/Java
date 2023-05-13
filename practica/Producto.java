@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class Producto {
     
     private String nombreP;
@@ -9,6 +11,7 @@ public class Producto {
         this.rendimientoHectarea=rendimientoHectarea;
         this.precio=precio;
     }
+    // Creo un array List de productores
 
     //Setters
     
