@@ -1,11 +1,12 @@
-import java.util.*;
+import java.util.*;/*
 public class FederacionProductores extends Productor {
-    private ArrayList<PequeProductor> PequeProductores;
+    private ArrayList<Productor> PequeProductores;
     private Producto producto;
-    public FederacionProductores(String nombre,double extensionTotal,ArrayList<PequeProductor> PequeProductores,Producto producto){
+    public FederacionProductores(String nombre, double extensionTotal, ArrayList<Productor> PequeProductores, Producto producto){
         super (nombre,extensionTotal);
-        this.Producto=producto;
-        this.pequeProductores = pequeProductores;
+        this.producto=producto;
+        this.PequeProductores = PequeProductores;
     }
 
 }
+*/
