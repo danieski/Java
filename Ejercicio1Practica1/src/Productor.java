@@ -43,7 +43,7 @@ public abstract class Productor {
             System.out.println("Productos:");
             for (AreaProductivo area : areasProductivos) {
                 if (area.getNombreProductor() == productor.getNombre()) {
-                    System.out.println(area.getProducto() + " - " + area.getArea() + " ha");
+                    System.out.println(area.getProductoNombre() + " - " + area.getArea() + " ha");
                 }
             }
             System.out.println();

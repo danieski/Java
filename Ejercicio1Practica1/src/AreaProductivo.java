@@ -15,7 +15,10 @@ public class AreaProductivo {
         return nombreProductor;
     }
 
-    public String getProducto() {
+    public Producto getProducto() {
+        return producto;
+    }
+    public String getProductoNombre() {
         return producto.getNombre();
     }
 
@@ -23,11 +26,5 @@ public class AreaProductivo {
         return area;
     }
 
-    @Override
-    public String toString() {
-        return "AreaProductivo{" +
-                "producto=" + producto +
-                ", area=" + area +
-                '}';
-    }
+
 }

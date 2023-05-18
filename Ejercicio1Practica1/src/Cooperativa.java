@@ -5,7 +5,7 @@ import java.util.Date;
 public class Cooperativa {
     private Date fechaActual;
     private final int anoActual=2023;
-
+    private static ArrayList<Federacion> federados= new ArrayList<>();;
     public static ArrayList<Productor> productores = new ArrayList<>();
     public static ArrayList<Producto> productos = new ArrayList<>();
     public static ArrayList<AreaProductivo> areasProductivas = new ArrayList<>();
@@ -37,22 +37,36 @@ public class Cooperativa {
         productos.add(new Producto("Pera",1,true,1,1));
         productos.add(new Producto("Fresa",1,true,1,1));
         productos.add(new Producto("Algodon",2.5,true,1,1));
-
+        productos.add(new Producto("Aceitunas",2.5,true,1,1));
         //Ceamos un objeto areaProducto para el testing
 
         areasProductivas.add(new AreaProductivo("Productor Grande",productos.get(0),12));
         areasProductivas.add(new AreaProductivo("Productor Grande",productos.get(1),21));
         areasProductivas.add(new AreaProductivo("Dani",productos.get(2),2));
         areasProductivas.add(new AreaProductivo("Dani",productos.get(0),3));
-
+        areasProductivas.add(new AreaProductivo("Productor Peque",productos.get(3),3));
+        areasProductivas.add(new AreaProductivo("Productor Peque",productos.get(0),1));
+        areasProductivas.add(new AreaProductivo("Alvaro",productos.get(4),6));
+        areasProductivas.add(new AreaProductivo("Alvaro",productos.get(1),7));
+        areasProductivas.add(new AreaProductivo("f_Productor Peque",productos.get(0),7));
+        areasProductivas.add(new AreaProductivo("f_Dani",productos.get(0),7));
         //Creamos un objeto productor para el testing
         productores.add(new ProductorPeque("Dani",areasProductivas,1));
+        productores.add(new ProductorGrande("Alvaro",1,areasProductivas));
+        productores.add(new ProductorPeque("Productor Peque",areasProductivas,1));
 
         //Creamos un objeto Productor grande
         productores.add(new ProductorGrande("Productor Grande",15,areasProductivas ));
+        federados.add(Federacion.agregarFederacion(productos,areasProductivas));
+
+
+        //Creamos array federados para el testing
+        federados.add(new Federacion("Federacion Aceite",areasProductivas,2));
+
         Producto.AgregarProducto(productos);
         Productor.agregarProductor(productores,productos,areasProductivas);
         Productor.getProductores(productores,areasProductivas);
+
         //Dentro del objeto Productor grande llamamos al metodo agregar producto
         /*
         Producto.agregarProducto("Trigo");
