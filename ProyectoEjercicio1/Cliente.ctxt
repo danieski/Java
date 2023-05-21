@@ -1,0 +1,27 @@
+#BlueJ class context
+comment0.target=Cliente
+comment1.params=nombre\ distanciaCapital\ pedidos\ capital
+comment1.target=Cliente(java.lang.String,\ int,\ java.util.ArrayList,\ Capital)
+comment10.params=pedidos
+comment10.target=void\ setPedidos(java.util.ArrayList)
+comment11.params=pedidos\ capitals
+comment11.target=Cliente\ agregarCliente(java.util.ArrayList,\ java.util.ArrayList)
+comment12.params=
+comment12.target=void\ muestaClientes()
+comment2.params=
+comment2.target=java.lang.String\ getNombre()
+comment3.params=nombre
+comment3.target=void\ setNombre(java.lang.String)
+comment4.params=
+comment4.target=int\ getDistancia()
+comment5.params=distancia
+comment5.target=void\ setDistancia(int)
+comment6.params=
+comment6.target=Capital\ getProvincia()
+comment7.params=capital
+comment7.target=void\ setProvincia(Capital)
+comment8.params=
+comment8.target=java.util.ArrayList\ getPedidos()
+comment9.params=
+comment9.target=java.util.ArrayList\ getListaClientes()
+numComments=13

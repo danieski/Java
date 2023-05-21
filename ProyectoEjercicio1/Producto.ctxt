@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Producto
+comment1.params=nombre\ rendimiento\ predecedero\ ventaTotal\ cosechaTotal\ precio\ historialPrecios
+comment1.target=Producto(java.lang.String,\ double,\ boolean,\ double,\ double,\ double,\ java.util.ArrayList)
+comment2.params=
+comment2.target=boolean\ isPredecedero()
+comment3.params=
+comment3.target=java.util.ArrayList\ getHistorialPrecios()
+comment4.params=precio
+comment4.target=void\ setPrecio(double)
+comment5.params=
+comment5.target=double\ getPrecio()
+comment6.params=obj
+comment6.target=boolean\ equals(java.lang.Object)
+comment7.params=
+comment7.target=java.lang.String\ getNombre()
+comment8.params=productos\ historialPrecio
+comment8.target=void\ AgregarProducto(java.util.ArrayList,\ java.util.ArrayList)
+comment9.params=productos
+comment9.target=void\ getListaProductos(java.util.ArrayList)
+numComments=10

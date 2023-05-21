@@ -4,8 +4,6 @@ import java.util.Objects;
 
 public class Federacion extends ProductorPeque {
     private static ArrayList<Productor> productor;
-
-    private static ArrayList<ProductorPeque> productoresFederados;
     private Producto producto;
     private double extensionTotal;
     public Federacion(String nombre, ArrayList<AreaProductivo> areaProductivo,double extensionTotal) {
@@ -84,11 +82,6 @@ public class Federacion extends ProductorPeque {
                 System.out.println(contador + " - " + federacion.getNombre());
                 contador++;
         }
-
-    }
-    public void agregarProductorFederacion(ArrayList<Federacion> federados,ArrayList<Productor> productores){
-        getProductoresFederados(federados);
-        int idProducto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el ID del productor federado: "));
 
     }
 

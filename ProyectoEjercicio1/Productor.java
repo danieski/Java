@@ -54,8 +54,7 @@ public abstract class Productor {
     }
 
     public static void agregarProductor(ArrayList<Productor> productores,ArrayList<Producto> productos,ArrayList<AreaProductivo> areasProductivos){
-        double cosechaTotal=0;
-        boolean agregarOtro = true;
+            boolean agregarOtro = true;
             int contador = 0;
             String productorNuevo = JOptionPane.showInputDialog("Ingrese el nombre del productor:");
             do{
@@ -72,21 +71,15 @@ public abstract class Productor {
             // Comprobar el resultado de la búsqueda
             if (indice != -1) {
                 System.out.println("El producto encontrado esta encontrado en la lista de productos: " + indice);
-                double hectareasProducto = Double.parseDouble(JOptionPane.showInputDialog("Ingrese las hectares del producto:"));
-                //Actualizar el objeto producto cosechatotal
-                areasProductivos.add(new AreaProductivo(productorNuevo, productos.get(indice), hectareasProducto));
-                for ( AreaProductivo hectareasDelProducto:areasProductivos ) {
-                    if(productoNuevo.equals(hectareasDelProducto.getProductoNombre())){
-                        cosechaTotal+=hectareasDelProducto.getArea();
-                        productos.get(indice).setCosechaTotal(cosechaTotal);
-                    }
-                }
-                    if (hectareasProducto<MAX_EXTENSION_TOTAL){
-                        productores.add(new ProductorPeque(productorNuevo,areasProductivos,hectareasProducto));
+                double cantidadNueva = Double.parseDouble(JOptionPane.showInputDialog("Ingrese la cantidad del producto:"));
+                areasProductivos.add(new AreaProductivo(productorNuevo, productos.get(indice), cantidadNueva));
+
+                    if (cantidadNueva<MAX_EXTENSION_TOTAL){
+                        productores.add(new ProductorPeque(productorNuevo,areasProductivos,cantidadNueva));
                         //para el testing
 
                     }else{
-                        productores.add(new ProductorGrande(productorNuevo,hectareasProducto,areasProductivos));
+                        productores.add(new ProductorGrande(productorNuevo,cantidadNueva,areasProductivos));
                     }
             } else {
                 System.out.println("El producto no se encontró en la lista de productos.");

@@ -1,0 +1,23 @@
+#BlueJ class context
+comment0.target=Capital
+comment1.params=nombre\ distanciaCoperativa\ precioKmGranLogistica\ precioKmPequeLogistica
+comment1.target=Capital(java.lang.String,\ double,\ double,\ double)
+comment10.params=
+comment10.target=java.util.ArrayList\ getProvincias()
+comment2.params=
+comment2.target=java.lang.String\ getNombre()
+comment3.params=nombre
+comment3.target=void\ setNombre(java.lang.String)
+comment4.params=
+comment4.target=double\ getDistanciaCoperativa()
+comment5.params=distanciaCoperativa
+comment5.target=void\ setDistanciaCoperativa(double)
+comment6.params=
+comment6.target=double\ getPrecioKmGranLogistica()
+comment7.params=precioKmGranLogistica
+comment7.target=void\ setPrecioKmGranLogistica(double)
+comment8.params=
+comment8.target=double\ getPrecioKmPequeLogistica()
+comment9.params=precioKmPequeLogistica
+comment9.target=void\ setPrecioKmPequeLogistica(double)
+numComments=11

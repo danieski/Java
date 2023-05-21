@@ -31,12 +31,12 @@ public class Cooperativa {
         //Arrays de dobles para el historial de precios
         ;
         //Creamos un objeto producto para el testing
-        productos.add(new Producto("Manzana",1,true,1,20,1,Producto.getHistorialPrecios()));
-        productos.add(new Producto("Pera",1,true,1,28,0.7,Producto.getHistorialPrecios()));
-        productos.add(new Producto("Fresa",1,true,1,2,0.5,Producto.getHistorialPrecios()));
-        productos.add(new Producto("Algodon",2.5,false,1,3,0.5,Producto.getHistorialPrecios()));
-        productos.add(new Producto("Aceitunas",2.5,true,1,6,1.4,Producto.getHistorialPrecios()));
-        productos.add(new Producto("Aceite",2.5,false,1,0,0.5,Producto.getHistorialPrecios()));
+        productos.add(new Producto("Manzana",1,true,1,1,1,Producto.getHistorialPrecios()));
+        productos.add(new Producto("Pera",1,true,1,1,0.7,Producto.getHistorialPrecios()));
+        productos.add(new Producto("Fresa",1,true,1,1,0.5,Producto.getHistorialPrecios()));
+        productos.add(new Producto("Algodon",2.5,false,1,1.,0.5,Producto.getHistorialPrecios()));
+        productos.add(new Producto("Aceitunas",2.5,true,1,1,1.4,Producto.getHistorialPrecios()));
+        productos.add(new Producto("Aceite",2.5,false,1,1,0.5,Producto.getHistorialPrecios()));
 
         //Ceamos un objeto areaProducto para el testing
 
