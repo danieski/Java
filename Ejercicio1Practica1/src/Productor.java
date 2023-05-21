@@ -6,6 +6,8 @@ public abstract class Productor {
     private String nombre;
     private double extensionTotal;
     private static ArrayList<AreaProductivo> areasProductivos;
+    private static final int MAX_PRODUCTOS = 5;
+    private static final double MAX_EXTENSION_TOTAL = 5;
 
 
 
@@ -15,9 +17,6 @@ public abstract class Productor {
         this.areasProductivos = areasProductivos;
     }
 
-    public Productor() {
-
-    }
 
 
     public String getNombre() {
@@ -55,8 +54,10 @@ public abstract class Productor {
     }
 
     public static void agregarProductor(ArrayList<Productor> productores,ArrayList<Producto> productos,ArrayList<AreaProductivo> areasProductivos){
-
+            boolean agregarOtro = true;
+            int contador = 0;
             String productorNuevo = JOptionPane.showInputDialog("Ingrese el nombre del productor:");
+            do{
             String productoNuevo = JOptionPane.showInputDialog("Ingrese el nombre del producto:");
             // Realizar la búsqueda
             int indice = -1;
@@ -71,8 +72,9 @@ public abstract class Productor {
             if (indice != -1) {
                 System.out.println("El producto encontrado esta encontrado en la lista de productos: " + indice);
                 double cantidadNueva = Double.parseDouble(JOptionPane.showInputDialog("Ingrese la cantidad del producto:"));
-                areasProductivos.add(new AreaProductivo(productorNuevo,productos.get(indice),cantidadNueva));
-                    if (cantidadNueva<5){
+                areasProductivos.add(new AreaProductivo(productorNuevo, productos.get(indice), cantidadNueva));
+
+                    if (cantidadNueva<MAX_EXTENSION_TOTAL){
                         productores.add(new ProductorPeque(productorNuevo,areasProductivos,cantidadNueva));
                         //para el testing
 
@@ -82,6 +84,14 @@ public abstract class Productor {
             } else {
                 System.out.println("El producto no se encontró en la lista de productos.");
             }
+                int opcion = JOptionPane.showConfirmDialog(null, "¿Desea agregar otro producto?", "Confirmación", JOptionPane.YES_NO_OPTION);
+                if (opcion == JOptionPane.YES_OPTION && contador<4) {
+                    agregarOtro = true;
+                } else {
+                    agregarOtro = false;
+                }
+                contador++;
+            }while(agregarOtro);
 
         }
 
