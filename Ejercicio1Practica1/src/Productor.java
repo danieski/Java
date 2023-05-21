@@ -11,9 +11,8 @@ public abstract class Productor {
 
 
 
-    public Productor(String nombre, double extensionTotal, ArrayList<AreaProductivo> areasProductivos) {
+    public Productor(String nombre, ArrayList<AreaProductivo> areasProductivos) {
         this.nombre = nombre;
-        this.extensionTotal = extensionTotal;
         this.areasProductivos = areasProductivos;
     }
 
@@ -82,11 +81,11 @@ public abstract class Productor {
                     }
                 }
                     if (hectareasProducto<MAX_EXTENSION_TOTAL){
-                        productores.add(new ProductorPeque(productorNuevo,areasProductivos,hectareasProducto));
+                        productores.add(new ProductorPeque(productorNuevo,areasProductivos));
                         //para el testing
 
                     }else{
-                        productores.add(new ProductorGrande(productorNuevo,hectareasProducto,areasProductivos));
+                        productores.add(new ProductorGrande(productorNuevo,areasProductivos));
                     }
             } else {
                 System.out.println("El producto no se encontró en la lista de productos.");

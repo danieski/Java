@@ -1,8 +1,8 @@
 import java.util.ArrayList;
 
 public class ProductorGrande extends Productor{
-    public ProductorGrande(String nombre,double extensionTotal, ArrayList<AreaProductivo> areaProductivo) {
-        super(nombre,extensionTotal,areaProductivo);
+    public ProductorGrande(String nombre, ArrayList<AreaProductivo> areaProductivo) {
+        super(nombre,areaProductivo);
     }
 
     @Override

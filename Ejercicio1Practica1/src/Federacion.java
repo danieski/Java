@@ -1,94 +1,99 @@
 import javax.swing.*;
 import java.util.ArrayList;
-import java.util.Objects;
 
 public class Federacion extends ProductorPeque {
-    private static ArrayList<Productor> productor;
-
-    private static ArrayList<ProductorPeque> productoresFederados;
-    private Producto producto;
-    private double extensionTotal;
-    public Federacion(String nombre, ArrayList<AreaProductivo> areaProductivo,double extensionTotal) {
-        super(nombre,areaProductivo,extensionTotal);
-        this.productor=productor;
-        this.extensionTotal=extensionTotal;
-    }
-    public static ArrayList<Productor> getProductor() {
-        return productor;
+    private static String nombre;
+    private static ArrayList<ProductorPeque> miembrosFederacion;
+    public static ArrayList<Federacion> listaFederados=new ArrayList<>();
+    public Federacion(String nombre, ArrayList<AreaProductivo> areaProductivo,ArrayList<ProductorPeque> miembrosFederacion) {
+        super(nombre, areaProductivo);
+        this.miembrosFederacion=new ArrayList<ProductorPeque>();
     }
 
 
-    public Producto getProducto() {
-        return producto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public static void agregarFederacion(ArrayList<Producto> productos, ArrayList<AreaProductivo> areaProductivo , ArrayList<Federacion> federados){
-        Producto.getListaProductos(productos);
-        String productoFederar = JOptionPane.showInputDialog("Ingrese el NOMBRE del producto a federar:");
-        String nombreProductoBuscado="";
-        int contador=0;
-        int idProducto=0;
-        //Recorro el array de productos
-        for (Producto producto : productos) {
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
-             if (producto.getNombre().equals(productoFederar)) {
+    public ArrayList<ProductorPeque> getMiembrosFederacion() {
+        return miembrosFederacion;
+    }
 
-                //Si exsite guardamos el nombre en una variable
-                nombreProductoBuscado=nombreProductoBuscado.concat(producto.getNombre());
-                //Suponemos que el producto que introduce el usuario simpre existe
-                System.out.println("Tu producto existe id: " + idProducto);
-                break;
-            }
-             idProducto++;
-        }
+    public void setMiembrosFederacion(ArrayList<ProductorPeque> miembrosFederacion) {
+        this.miembrosFederacion = miembrosFederacion;
+    }
 
-        //Recorremos el array areaProductores
-        //getProductoNombre hay que cambiar los nombres productores
+    public ArrayList<Federacion> getListaFederados() {
+        return listaFederados;
+    }
 
-        for (AreaProductivo nombreProductores : areaProductivo){
-            //System.out.println(nombreProductores.getNombreProductor());
+    public void setListaFederados(ArrayList<Federacion> listaFederados) {
+        this.listaFederados = listaFederados;
+    }
 
-            //Si el nombre del producto coincide con alguno de los registros
-            if(nombreProductoBuscado.equals(nombreProductores.getProductoNombre()) && !nombreProductores.getNombreProductor().startsWith("_")){
-                //Imprimimos el nombre del productor que contiene dicho producto y su arraylist id
+    public static void agregarMiembroFederacion(ProductorPeque miembroFederacion) {
 
-                System.out.println("ID - " + contador + " - " + nombreProductores.getNombreProductor() + " - " + nombreProductores.getArea() + " he");
-
-            }
-            contador++;
-
-        }
-
-        //Obtenemos los indices de respectivos productores
-        int productorSeleccionado1 = Integer.parseInt(JOptionPane.showInputDialog("Selecciona un productor:"));
-        int productorSeleccionado2 = Integer.parseInt(JOptionPane.showInputDialog("Selecciona otro productor:"));
-        //comprobamos que los productores ofrecen unas hectareas inferiores al limite de productores peques
-        if (areaProductivo.get(productorSeleccionado1).getArea() + areaProductivo.get(productorSeleccionado2).getArea() > MAX_HECTAREAS_PEQUE ){
-            JOptionPane.showMessageDialog(null, "Se ha superado la cantidad máxima de hectáreas permitidas.", "Error", JOptionPane.ERROR_MESSAGE);
-
-
-        }else {
-            //Creamos
-            areaProductivo.add(new AreaProductivo("_f" + areaProductivo.get(productorSeleccionado1).getNombreProductor(), areaProductivo.get(idProducto).getProducto(), 5));
-            federados.add(new Federacion("Federacion de " + productoFederar, areaProductivo, 1));
-
+        //ProductorPeque miembroFederacion = new ProductorPeque("Tete",Cooperativa.areasProductivas);
+        miembrosFederacion.add(miembroFederacion);
+    }
+    public static void mostrarMiembrosFederacion(){
+        for (ProductorPeque nombre:miembrosFederacion) {
+            System.out.println(nombre.getNombre());
         }
     }
-
     public static void getProductoresFederados(ArrayList<Federacion> federados) {
         int contador=0;
         System.out.println("Productores Federados:");
         for (Federacion federacion :federados){
 
 
-                System.out.println(contador + " - " + federacion.getNombre());
-                contador++;
+            System.out.println(contador + " - " + federacion.getNombre());
+            contador++;
         }
 
     }
-    public void agregarProductorFederacion(ArrayList<Federacion> federados,ArrayList<Productor> productores){
-        getProductoresFederados(federados);
-        int idProducto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el ID del productor federado: "));
+    public static void crearFederacion(ArrayList<Producto> productos, ArrayList<Productor> listaProductores){
+        int idProducto=0;
+        int idProductorPeque=0;
+        boolean fin=false;
+        //Mostramos los productos
+        for (Producto NombreProductos:productos             ) {
+            System.out.println(idProducto + NombreProductos.getNombre());
+            idProducto++;
+        }
+        //Elegimos el producto
+        idProducto = Integer.parseInt(JOptionPane.showInputDialog("Selecciona un ID de producto:"));
+        //Mostramos los productores
+        String nombreFederacion = Cooperativa.productos.get(idProducto).getNombre();
+        for (Productor productores: listaProductores) {
+
+            System.out.println(idProductorPeque + productores.getNombre());
+            idProductorPeque++;
+        }
+
+        //Creamos el objeto
+        Federacion nuevoFederado = new Federacion("Federacion " + nombreFederacion, Cooperativa.areasProductivas, miembrosFederacion);
+        listaFederados.add(nuevoFederado);
+        //Elegimos los productores
+        do {
+            idProductorPeque = Integer.parseInt(JOptionPane.showInputDialog("Selecciona un ID de productor:"));
+
+
+            //Agregamos los miembros
+            nuevoFederado.agregarMiembroFederacion(new ProductorPeque(listaProductores.get(idProductorPeque).getNombre(), Cooperativa.areasProductivas));
+
+            int opcion = JOptionPane.showConfirmDialog(null, "¿Agregar otro productor?", "Confirmación", JOptionPane.YES_NO_OPTION);
+            if (opcion == JOptionPane.YES_OPTION) {
+                fin = true;
+            } else {
+                fin = false;
+            }
+        }while(fin);
+        mostrarMiembrosFederacion();
 
     }
 

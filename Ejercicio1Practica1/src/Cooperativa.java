@@ -6,7 +6,7 @@ import java.util.Calendar;
 
 public class Cooperativa {
     //public static LocalDate fechaLocal = LocalDate.of(2023, 1, 1);
-    private static ArrayList<Federacion> federados= new ArrayList<>();;
+    //private static ArrayList<Federacion> federados= new ArrayList<>();;
     public static ArrayList<Productor> productores = new ArrayList<>();
     public static ArrayList<Producto> productos = new ArrayList<>();
     public static ArrayList<AreaProductivo> areasProductivas = new ArrayList<>();
@@ -14,6 +14,8 @@ public class Cooperativa {
 
 
     public static void main(String[] args) {
+
+
         //System.out.println(180%50);
         //Tema fechas
         Date fecha = new Date(123, 0, 1);
@@ -51,17 +53,23 @@ public class Cooperativa {
         areasProductivas.add(new AreaProductivo("_fProductor Peque",productos.get(0),7));
         areasProductivas.add(new AreaProductivo("_fDani",productos.get(0),7));
         //Creamos un objeto productor para el testing
-        productores.add(new ProductorPeque("Dani",areasProductivas,1));
-        productores.add(new ProductorGrande("Alvaro",1,areasProductivas));
-        productores.add(new ProductorPeque("Productor Peque",areasProductivas,1));
+        productores.add(new ProductorPeque("Dani",areasProductivas));
+        productores.add(new ProductorGrande("Alvaro",areasProductivas));
+        productores.add(new ProductorPeque("Productor Peque",areasProductivas));
 
         //Creamos un objeto Productor grande
-        productores.add(new ProductorGrande("Productor Grande",15,areasProductivas ));
+        productores.add(new ProductorGrande("Productor Grande",areasProductivas ));
 
-
-
+        Federacion.crearFederacion(productos,productores);
+        //Federacion.getProductoresFederados(Federacion.listaFederados);
+        Federacion.listaFederados.get(0).getNombre();
+        for ( Federacion federados :Federacion.listaFederados
+             ) {
+            System.out.println(federados.getNombre());
+        }
+        //Federacion.getProductoresFederados
         //Creamos array federados para el testing
-        federados.add(new Federacion("Federacion Aceite",areasProductivas,2));
+        //Federacion.getListaFederacion().add(new Federacion("Federacion Aceite",areasProductivas,Federacion.getProductoresFederados()));
         //cambiarPrecios(productos,Producto.getHistorialPrecios());
         mostrarMenu(calendario,calendarioPrecios);
 
@@ -131,6 +139,7 @@ public class Cooperativa {
             System.out.println("7- Cambiar Fecha");
             System.out.println("8- Agregar Cliente");
             System.out.println("9- Crear Pedido");
+            System.out.println("10- Agregar Productores a Federacion");
             int opcion = Integer.parseInt(JOptionPane.showInputDialog("Ingrese una opcion:"));
             switch (opcion) {
                 case 1:
@@ -143,7 +152,7 @@ public class Cooperativa {
                     break;
                 case 3:
                     System.out.println("Ha seleccionado la opción 3");
-                    Federacion.agregarFederacion(productos, areasProductivas,federados);
+                    //Federacion.getListaFederacion().add(Federacion.agregarFederacion(productos, areasProductivas));
                     break;
                 case 4:
                     System.out.println("Ha seleccionado la opción 4");
@@ -151,7 +160,7 @@ public class Cooperativa {
                     break;
                 case 5:
                     System.out.println("Ha seleccionado la opción 5");
-                    Federacion.getProductoresFederados(federados);
+                    //Federacion.getProductoresFederados(Federacion.getListaFederacion());
                     break;
                 case 6:
                     System.out.println("Ha seleccionado la opción 6");
@@ -187,6 +196,10 @@ public class Cooperativa {
                 case 9:
                     System.out.println("Ha seleccionado la opción 9");
                     Pedidos.generarPedido(Cliente.getListaClientes(),productos);
+                    break;
+                case 10:
+                    System.out.println("Ha seleccionado la opción 10");
+                    //Federacion.agregarProductorFederacion(Federacion.getListaFederacion(),productores);
                     break;
                         case 0:
                             System.out.println("Saliendo del programa...");
