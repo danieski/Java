@@ -8,32 +8,23 @@ public class Pedidos {
     private Cliente cliente;
     private Date fechaPedido;
     private Date fechaEnvio;
-    private boolean servicioExpress;
     private double pesoTotal;
 
     private Producto producto;
 
 
-    public Pedidos(int numeroPedido,Cliente cliente, Date fechaPedido, double pesoTotal,Producto producto,boolean servicioExpress) {
+    public Pedidos(int numeroPedido,Cliente cliente, Date fechaPedido, double pesoTotal,Producto producto) {
         contadorPedidos++;
         this.producto=producto;
         this.numeroPedido = contadorPedidos;
         this.cliente = cliente;
         this.fechaPedido = fechaPedido;
         this.pesoTotal = pesoTotal;
-        this.servicioExpress=servicioExpress;
-
     }
 
     public static int getContadorPedidos() {
         return contadorPedidos;
     }
-
-    public boolean isServicioExpress() {
-        return servicioExpress;
-    }
-
-
 
     public static void setContadorPedidos(int contadorPedidos) {
         Pedidos.contadorPedidos = contadorPedidos;
@@ -81,7 +72,6 @@ public class Pedidos {
 
     public static Pedidos generarPedido(ArrayList<Cliente> listaClientes,ArrayList<Producto> listaProductos){
         //int idProducto =
-        boolean servicioExpress=false;
         Cliente.muestaClientes();
         //Seleecicionamos y almacinamos su id
         int idCliente = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el ID del cliente: "));
@@ -100,15 +90,8 @@ public class Pedidos {
         // Obtener un objeto Date a partir del Calendar
         Date fechaPedido = calendar.getTime();
         int pesoPedido = Integer.parseInt(JOptionPane.showInputDialog("Peso del pedido: "));
-        //Es express?
-        int opcion = JOptionPane.showConfirmDialog(null, "¿Quiere el servicio express?", "Confirmación", JOptionPane.YES_NO_OPTION);
-        if (opcion == JOptionPane.YES_OPTION) {
-            servicioExpress = true;
-        } else {
-            servicioExpress = false;
-        }
         //Creamos y devolvemo el objeto Pedidos
-        Pedidos nuevoPedido = new Pedidos(00,listaClientes.get(idCliente),fechaPedido,pesoPedido,listaProductos.get(idProducto),servicioExpress);
+        Pedidos nuevoPedido = new Pedidos(00,listaClientes.get(idCliente),fechaPedido,pesoPedido,listaProductos.get(idProducto));
         if (listaProductos.get(idProducto).isPredecedero()){
             double TramosGranLogistica=100;
             calcularPrecioPedidoPedecedero(nuevoPedido,TramosGranLogistica);

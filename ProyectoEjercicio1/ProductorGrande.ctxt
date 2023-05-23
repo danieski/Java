@@ -1,7 +1,0 @@
-#BlueJ class context
-comment0.target=ProductorGrande
-comment1.params=nombre\ extensionTotal\ areaProductivo
-comment1.target=ProductorGrande(java.lang.String,\ double,\ java.util.ArrayList)
-comment2.params=
-comment2.target=java.lang.String\ getDatos()
-numComments=3

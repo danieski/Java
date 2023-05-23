@@ -24,10 +24,6 @@ public class Producto {
         this.historialPrecios=historialPrecios;
     }
 
-    public void setCosechaTotal(double cosechaTotal) {
-        this.cosechaTotal = cosechaTotal;
-    }
-
     public boolean isPredecedero() {
         return predecedero;
     }
@@ -55,14 +51,11 @@ public class Producto {
         return nombre.equals(producto.nombre);
     }
 
-    public double getCosechaTotal() {
-        return cosechaTotal;
-    }
+
 
     public String getNombre() {
         return nombre;
     }
-
 
     public static void AgregarProducto(ArrayList<Producto> productos, ArrayList<Double> historialPrecio){
         boolean esPedecedero = false;
@@ -86,7 +79,7 @@ public class Producto {
         int idProducto=0;
         for (Producto nombreProducto:productos) {
 
-            System.out.println(idProducto + " - " + nombreProducto.getNombre() + " - Cosecha total: " + nombreProducto.getCosechaTotal());
+            System.out.println(idProducto + " - " + nombreProducto.getNombre());
             idProducto++;
         }
     }
