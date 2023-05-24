@@ -1,89 +1,78 @@
 import javax.swing.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Federacion extends ProductorPeque {
-    private static ArrayList<Productor> productor;
     private static ArrayList<Federacion> listaFederacion = new ArrayList<>();
     private Producto producto;
     private double extensionTotal;
     public Federacion(String nombre, ArrayList<Hectareas> hectareas, double extensionTotal) {
         super(nombre, hectareas);
-        this.productor=productor;
+        super.hectareas=hectareas;
         this.extensionTotal=extensionTotal;
     }
-    public static ArrayList<Productor> getProductor() {
-        return productor;
-    }
+
 
     public static ArrayList<Federacion> getListaFederacion() {
         return listaFederacion;
     }
 
+
     public Producto getProducto() {
         return producto;
     }
 
-    public static Federacion agregarFederacion(ArrayList<Producto> productos, ArrayList<Hectareas> hectareas, ArrayList<Federacion> federados){
+
+    public static void agregarFederacion(ArrayList<Producto> productos){
+        Hectareas hectareas = new Hectareas();
+        double extensionTotal = 0;
+        int idHectareas = 0 ;
+        boolean fin = true;
+        Scanner scanner = new Scanner(System.in);
+        //Mostramos la lista de productos federables
         Producto.getListaProductos(productos);
-        String productoFederar = JOptionPane.showInputDialog("Ingrese el NOMBRE del producto a federar:");
-        String nombreProductoBuscado="";
-        int contador=0;
-        int idProducto=0;
-        //Recorro el array de productos
-        for (Producto producto : productos) {
 
-            if (producto.getNombre().equals(productoFederar)) {
-
-                //Si exsite guardamos el nombre en una variable
-                nombreProductoBuscado=nombreProductoBuscado.concat(producto.getNombre());
-                //Suponemos que el producto que introduce el usuario simpre existe
-                System.out.println("Tu producto existe id: " + idProducto);
-                break;
+        System.out.print("Ingrese el id del producto: ");
+        int idProducto = scanner.nextInt();
+        //Mostramos las entradas con los productores que producen dicho producto
+        for (Hectareas productoHectareas:Cooperativa.areasProductivas ) {
+            if (productoHectareas.getProducto().equals(Cooperativa.productos.get(idProducto))) {
+                System.out.println(idHectareas + " " + productoHectareas.getNombreProductor() + " - " + productoHectareas.getArea() + "he");
             }
-            idProducto++;
+            idHectareas++;
         }
-
-        //Recorremos el array areaProductores
-        //getProductoNombre hay que cambiar los nombres productores
-
-        for (Hectareas nombreProductores : hectareas){
-            //System.out.println(nombreProductores.getNombreProductor());
-
-            //Si el nombre del producto coincide con alguno de los registros
-            if(nombreProductoBuscado.equals(nombreProductores.getProductoNombre()) && !nombreProductores.getNombreProductor().startsWith("_")){
-                //Imprimimos el nombre del productor que contiene dicho producto y su arraylist id
-
-                System.out.println("ID - " + contador + " - " + nombreProductores.getNombreProductor() + " - " + nombreProductores.getArea() + " he");
-
+        //Elegimos los miembros de la federacion
+        ArrayList<Hectareas> hectareasFederadas=new ArrayList<>();
+        do {
+            System.out.print("Ingrese el id del productor: ");
+            int idHectarea = scanner.nextInt();
+            hectareasFederadas.add(Cooperativa.areasProductivas.get(idHectarea));
+            System.out.print("Desea agregar otro mas? 1=si 2=no");
+            int decision = scanner.nextInt();
+            if (decision == 2){
+                fin=false;
             }
-            contador++;
-
+        }while (fin);
+        //Calculamos la extension total
+        for (Hectareas extensionTotalHectareas:hectareasFederadas
+             ) {
+            extensionTotal+=extensionTotalHectareas.getArea();
         }
+        listaFederacion.add(new Federacion("Federacion de " + Cooperativa.productos.get(idProducto).getNombre(),hectareasFederadas,extensionTotal));
 
-        //Obtenemos los indices de respectivos productores
-        int productorSeleccionado1 = Integer.parseInt(JOptionPane.showInputDialog("Selecciona un productor:"));
-        int productorSeleccionado2 = Integer.parseInt(JOptionPane.showInputDialog("Selecciona otro productor:"));
-        //comprobamos que los productores ofrecen unas hectareas inferiores al limite de productores peques
-        if (hectareas.get(productorSeleccionado1).getArea() + hectareas.get(productorSeleccionado2).getArea() > MAX_HECTAREAS_PEQUE ){
-            JOptionPane.showMessageDialog(null, "Se ha superado la cantidad máxima de hectáreas permitidas.", "Error", JOptionPane.ERROR_MESSAGE);
-
-
-        }else {
-            //Creamos
-            hectareas.add(new Hectareas("_f" + hectareas.get(productorSeleccionado1).getNombreProductor(), hectareas.get(idProducto).getProducto(), 5));
-            federados.add(new Federacion("Federacion de " + productoFederar, hectareas, 1));
-
-        }
-        return null;
     }
 
-    public static void getProductoresFederados(ArrayList<Federacion> federados) {
+    public void getProductoresFederados(ArrayList<Federacion> federados) {
         int contador=0;
         System.out.println("Productores Federados:");
         for (Federacion federacion :federados){
 
-
             System.out.println(contador + " - " + federacion.getNombre());
+            ArrayList<Hectareas> miembrosFederados= super.getAreasProductivos();
+            for ( Hectareas hectareas:miembrosFederados
+                 ) {
+                System.out.println(hectareas.getNombreProductor() + " - " + hectareas.getArea() + "he");
+            }
             contador++;
         }
 

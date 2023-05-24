@@ -16,7 +16,9 @@ public abstract class Productor {
         this.areasProductivos = areasProductivos;
     }
 
-
+    public static ArrayList<Hectareas> getAreasProductivos() {
+        return areasProductivos;
+    }
 
     public String getNombre() {
         return nombre;
@@ -48,9 +50,7 @@ public abstract class Productor {
         }
         System.out.println();
     }
-    public void getAreasProductivas (Hectareas areasProductivos){
-        areasProductivos.getProducto();
-    }
+
 
     public static void agregarProductor(ArrayList<Productor> productores,ArrayList<Producto> productos,ArrayList<Hectareas> areasProductivos){
         boolean agregarOtro = true;

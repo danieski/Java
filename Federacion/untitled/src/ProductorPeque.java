@@ -31,6 +31,10 @@ public class ProductorPeque {
         return hectareas;
     }
 
+    public ArrayList<ProductorPeque> getListaProductores() {
+        return listaProductores;
+    }
+
     public void agregarProductoresPeques(){
         //Creamos los Arrays
         ArrayList<Hectareas> hectareasDani = new ArrayList<>();
@@ -47,6 +51,7 @@ public class ProductorPeque {
         listaProductores.add(new ProductorPeque("Jose",hectareasJose));
     }
     public void mostrarProducotresPeque(){
+        int id = 0 ;
         //Recorremos la lista de productores
         for (ProductorPeque nombreProductores: listaProductores) {
             System.out.println(nombreProductores.getNombre());
@@ -56,8 +61,8 @@ public class ProductorPeque {
             for (Hectareas hectareasProductor: hectareas1
                  ) {
                 //Imprimimos el valor correspondiente
-                System.out.println(hectareasProductor.getProducto().getNombre() + " - " + hectareasProductor.getHectareas());
-
+                System.out.println(id + " - " + hectareasProductor.getProducto().getNombre() + " - " + hectareasProductor.getHectareas());
+                id++;
             }
         }
     }

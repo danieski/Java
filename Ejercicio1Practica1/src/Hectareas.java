@@ -8,6 +8,9 @@ public class Hectareas {
         this.producto = producto;
         this.area = area;
     }
+    public Hectareas(){
+
+    }
 
     public String getNombreProductor() {
         return nombreProductor;

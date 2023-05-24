@@ -146,7 +146,7 @@ public class Cooperativa {
                     break;
                 case 3:
                     System.out.println("Ha seleccionado la opción 3");
-                    Federacion.getListaFederacion().add(Federacion.agregarFederacion(productos, areasProductivas,Federacion.getListaFederacion()));
+                    Federacion.agregarFederacion(productos);
                     break;
                 case 4:
                     System.out.println("Ha seleccionado la opción 4");
