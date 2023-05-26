@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 public class Producto {
-    private ArrayList<Producto> listaProductos = new ArrayList<>();
+    private static ArrayList<Producto> listaProductos = new ArrayList<>();
     private String nombre;
 
     public Producto(String nombre) {
@@ -16,7 +16,7 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public ArrayList<Producto> getListaProductos() {
+    public static ArrayList<Producto> getListaProductos() {
         return listaProductos;
     }
 
@@ -24,14 +24,16 @@ public class Producto {
         this.listaProductos = listaProductos;
     }
 
-    public void agregarProducto(){
+    public static void agregarProducto(){
         listaProductos.add(new Producto("Tomates"));
         listaProductos.add(new Producto("Patatas"));
     }
-    public void mostrarProductos(){
+    public static void mostrarProductos(){
+        int idProducto =0;
         for (Producto nombresProductos: listaProductos
              ) {
-            System.out.println(nombresProductos.getNombre());
+            System.out.println(idProducto + " " +nombresProductos.getNombre());
+            idProducto++;
         }
     }
 
