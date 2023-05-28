@@ -35,6 +35,7 @@ public class Federacion {
         boolean fin=true;
 
 
+
         for (Productor productores:Productor.getListaProductores()
              ) {
             if (productores instanceof ProductorPeque) {
@@ -62,6 +63,7 @@ public class Federacion {
             }*/
 
         }
+
 
         ArrayList<ProductorPeque> miembrosFederacion = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);

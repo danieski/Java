@@ -4,6 +4,7 @@ public class Main {
 
 
 
+
         Producto.getListaProductos().add(new Producto("Platano"));
 
         ArrayList<Hectareas> hectareasDani =new ArrayList<>();
@@ -29,6 +30,10 @@ public class Main {
         Federacion.mostrarFederados();
         Federacion.listaFederados.add(Federacion.crearFederacion());
         Federacion.mostrarFederados();
+
+        Productor.getListaProductores().add(Productor.agregarProductor());
+        Productor.mostrarProductores();
+
 
         Productor.getListaProductores().add(Productor.agregarProductor());
         Productor.mostrarProductores();

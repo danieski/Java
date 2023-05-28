@@ -16,9 +16,11 @@ public class Productor {
     }
 
 
+
     public static ArrayList<Hectareas> getHectareas() {
         return hectareas;
     }
+
 
 
     public static ArrayList<Productor> getListaProductores() {
@@ -58,6 +60,7 @@ public class Productor {
         System.out.println("Nombre del productor:");
         String nombre = scanner.nextLine();
 
+
         //Comprobamos que sea un Productor peque o grande
         ArrayList<Hectareas> hectareasNuevoProductor =agregarHectareas();
         for ( Hectareas listaHectareasProductor:hectareasNuevoProductor
@@ -69,6 +72,9 @@ public class Productor {
         }else{
             return new ProductorGrande(nombre,hectareasNuevoProductor);
         }
+
+
+        return new Productor(nombre,agregarHectareas());
 
 
         return new Productor(nombre,agregarHectareas());
