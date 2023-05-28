@@ -2,10 +2,18 @@ import java.util.ArrayList;
 
 public class Hectareas {
 
+
     //private static ArrayList<Hectareas> listaHectareas=new ArrayList<>();
 
     private static Producto producto;
     private double hectarea;
+
+    private static ArrayList<Hectareas> listaHectareas=new ArrayList<>();
+    private ProductorPeque productorPeque;
+
+    private Producto producto;
+    private double hectareas;
+
 
     public Hectareas(Producto producto, double hectarea) {
 
@@ -14,7 +22,15 @@ public class Hectareas {
     }
 
 
-    public static Producto getProducto() {
+    public ProductorPeque getProductorPeque() {
+        return productorPeque;
+    }
+
+    public void setProductorPeque(ProductorPeque productorPeque) {
+        this.productorPeque = productorPeque;
+    }
+
+    public Producto getProducto() {
         return producto;
     }
 

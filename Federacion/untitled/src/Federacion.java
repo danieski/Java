@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Federacion {
     private String nombre;
-    static ArrayList<Federacion> listaFederados=new ArrayList<>();
+    ArrayList<Federacion> listaFederados=new ArrayList<>();
     ArrayList<ProductorPeque> miembrosFederacion;
 
     public Federacion(String nombre, ArrayList<ProductorPeque> miembrosFederacion) {
@@ -31,18 +31,9 @@ public class Federacion {
         this.listaFederados = listaFederados;
     }
 
-    public static Federacion crearFederacion(){
-        Producto.mostrarProductos();
-        Scanner scanner = new Scanner(System.in);
-        System.out.print("Ingrese el id del producto: ");
-        int idProducto = scanner.nextInt();
-        Producto productoSeleccionado=Producto.getListaProductos().get(idProducto);
-        return new Federacion("Federacion "+productoSeleccionado.getNombre(),agregarFederados(productoSeleccionado));
-    }
-    public static ArrayList<ProductorPeque> agregarFederados(Producto productoSeleccionado){
+    public void agregarFederados(ArrayList<Productor> productor){
         boolean fin=true;
-        int idProductorProductoSeleccionado=0;
-        //Mostramos los productores que contienen productoSeleccionado
+
 
         for (Productor productores:Productor.getListaProductores()
              ) {
@@ -71,12 +62,13 @@ public class Federacion {
             }*/
 
         }
+
         ArrayList<ProductorPeque> miembrosFederacion = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.print("Ingrese el id del productor: ");
             int idProductor = scanner.nextInt();
-            miembrosFederacion.add((ProductorPeque) Productor.getListaProductores().get(idProductor));
+            miembrosFederacion.add((ProductorPeque) productor.get(idProductor));
             System.out.print("Desea agregar otro mas? 1=si 2=no");
             int decision = scanner.nextInt();
             if (decision == 2){
@@ -84,9 +76,9 @@ public class Federacion {
             }
         }while (fin);
 
-        return miembrosFederacion;
+        listaFederados.add(new Federacion("Federacion Algodon",miembrosFederacion));
     }
-    public static void mostrarFederados(){
+    public void mostrarFederados(){
         for ( Federacion nombreFederacion:listaFederados 
              ) {
             System.out.println("Nombre: " + nombreFederacion.getNombre());

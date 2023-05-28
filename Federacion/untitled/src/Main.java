@@ -1,8 +1,7 @@
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
         Producto.agregarProducto();
+
 
 
         Producto.getListaProductos().add(new Producto("Platano"));
@@ -30,6 +29,10 @@ public class Main {
         Federacion.mostrarFederados();
         Federacion.listaFederados.add(Federacion.crearFederacion());
         Federacion.mostrarFederados();
+
+        Productor.getListaProductores().add(Productor.agregarProductor());
+        Productor.mostrarProductores();
+
 
     }
 

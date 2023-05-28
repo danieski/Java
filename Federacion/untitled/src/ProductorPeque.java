@@ -21,9 +21,14 @@ public class ProductorPeque extends Productor  {
 
 
     public String getNombre() {
-        return super.getNombre();
+        return nombre;
     }
 
+
+
+    public ArrayList<Hectareas> getHectareas() {
+        return hectareas;
+    }
 
 
 
