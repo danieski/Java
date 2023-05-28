@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class ProductorGrande extends Productor{
     private String nombre;
-    private static ArrayList<Hectareas> hectareas;
+    private ArrayList<Hectareas> hectareas;
 
     public ProductorGrande(String nombre, ArrayList<Hectareas> hectareas) {
         super(nombre, hectareas);
@@ -17,7 +17,7 @@ public class ProductorGrande extends Productor{
         this.nombre = nombre;
     }
 
-    public static ArrayList<Hectareas> getHectareas() {
+    public ArrayList<Hectareas> getHectareas() {
         return hectareas;
     }
 

@@ -8,20 +8,16 @@ public class Productor {
 
     public Productor(String nombre,ArrayList<Hectareas> hectareas) {
         this.nombre = nombre;
-        this.hectareas=new ArrayList<>();
+        this.hectareas=hectareas;
     }
 
-    public String getNombre() {
+    public String getNombre(){
         return nombre;
     }
 
-
-
-    public static ArrayList<Hectareas> getHectareas() {
+    public ArrayList<Hectareas> getHectareas() {
         return hectareas;
     }
-
-
 
     public static ArrayList<Productor> getListaProductores() {
         return listaProductores;
@@ -56,16 +52,15 @@ public class Productor {
 
     }
     public static Productor agregarProductor(){
+        double hectareasTotalesProductor=0;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Nombre del productor:");
         String nombre = scanner.nextLine();
-
-
         //Comprobamos que sea un Productor peque o grande
         ArrayList<Hectareas> hectareasNuevoProductor =agregarHectareas();
         for ( Hectareas listaHectareasProductor:hectareasNuevoProductor
              ) {
-            hectareasTotalesProductor+=listaHectareasProductor.getHectarea();
+            hectareasTotalesProductor+=listaHectareasProductor.getHectareas();
         }
         if (hectareasTotalesProductor<5){
             return new ProductorPeque(nombre,hectareasNuevoProductor);
@@ -73,22 +68,17 @@ public class Productor {
             return new ProductorGrande(nombre,hectareasNuevoProductor);
         }
 
-
-        return new Productor(nombre,agregarHectareas());
-
-
-        return new Productor(nombre,agregarHectareas());
-
     }
     public static void mostrarProductores() {
         int id = 0;
         // Recorremos la lista de productores
         for (Productor productor : getListaProductores()) {
-            System.out.println(productor.getNombre());
+            System.out.println(id + " " +productor.getNombre() + " " + productor.getClass());
             for (Hectareas productoHectareas: productor.hectareas
                  ) {
-                System.out.println(productoHectareas.getProducto().getNombre() + " " + productoHectareas.getHectarea());
+                System.out.println(productoHectareas.getProducto().getNombre() + " " + productoHectareas.getHectareas());
             }
+            id++;
         }
     }
 }

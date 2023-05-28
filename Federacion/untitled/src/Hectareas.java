@@ -2,49 +2,26 @@ import java.util.ArrayList;
 
 public class Hectareas {
 
-
-
-    //private static ArrayList<Hectareas> listaHectareas=new ArrayList<>();
+    private static ArrayList<Hectareas> listaHectareas=new ArrayList<>();
 
     private static Producto producto;
-    private double hectarea;
-
-    private static ArrayList<Hectareas> listaHectareas=new ArrayList<>();
-    private ProductorPeque productorPeque;
-
-
-    private static ArrayList<Hectareas> listaHectareas=new ArrayList<>();
-    private ProductorPeque productorPeque;
-
-
-    private Producto producto;
     private double hectareas;
 
-
-    public Hectareas(Producto producto, double hectarea) {
+    public Hectareas(Producto producto, double hectareas) {
 
         this.producto = producto;
-        this.hectarea = hectarea;
+        this.hectareas = hectareas;
     }
 
-
-    public ProductorPeque getProductorPeque() {
-        return productorPeque;
+    public ArrayList<Hectareas> getListaHectareas() {
+        return listaHectareas;
     }
 
-    public void setProductorPeque(ProductorPeque productorPeque) {
-        this.productorPeque = productorPeque;
+    public void setListaHectareas(ArrayList<Hectareas> listaHectareas) {
+        this.listaHectareas = listaHectareas;
     }
 
-    public ProductorPeque getProductorPeque() {
-        return productorPeque;
-    }
-
-    public void setProductorPeque(ProductorPeque productorPeque) {
-        this.productorPeque = productorPeque;
-    }
-
-    public Producto getProducto() {
+    public static Producto getProducto() {
         return producto;
     }
 
@@ -52,10 +29,17 @@ public class Hectareas {
         this.producto = producto;
     }
 
-    public double getHectarea() {
-        return hectarea;
+    public double getHectareas() {
+        return hectareas;
     }
 
+    public void setHectareas(double hectareas) {
+        this.hectareas = hectareas;
+    }
 
+    public void agregarHectareas(){
 
+        listaHectareas.add(new Hectareas(producto.getListaProductos().get(0),5));
+
+    }
 }

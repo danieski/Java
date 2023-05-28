@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Federacion {
     private String nombre;
-    ArrayList<Federacion> listaFederados=new ArrayList<>();
+    static ArrayList<Federacion> listaFederados=new ArrayList<>();
     ArrayList<ProductorPeque> miembrosFederacion;
 
     public Federacion(String nombre, ArrayList<ProductorPeque> miembrosFederacion) {
@@ -31,10 +31,18 @@ public class Federacion {
         this.listaFederados = listaFederados;
     }
 
-    public void agregarFederados(ArrayList<Productor> productor){
+    public static Federacion crearFederacion(){
+        Producto.mostrarProductos();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Ingrese el id del producto: ");
+        int idProducto = scanner.nextInt();
+        Producto productoSeleccionado=Producto.getListaProductos().get(idProducto);
+        return new Federacion("Federacion "+productoSeleccionado.getNombre(),agregarFederados(productoSeleccionado));
+    }
+    public static ArrayList<ProductorPeque> agregarFederados(Producto productoSeleccionado){
         boolean fin=true;
-
-
+        int idProductorProductoSeleccionado=0;
+        //Mostramos los productores que contienen productoSeleccionado
 
         for (Productor productores:Productor.getListaProductores()
              ) {
@@ -43,9 +51,9 @@ public class Federacion {
 
                 //Acceso a lista de hectarea erroneo no me deja hhacer nada aqui
                 for (Hectareas hectareasProductorPeque: productores.getHectareas()
-                     ) {
+                     ) {/*
                     //System.out.println(hectareasProductorPeque.getProducto());
-                    System.out.println(hectareasProductorPeque.getHectarea() + "he");
+                    System.out.println(hectareasProductorPeque.getHectareas() + "he");
                     /*
                     if(hectareasProductorPeque.getProducto().equals(productoSeleccionado)){
                         System.out.println(idProductorProductoSeleccionado + " " + productores.getNombre());
@@ -63,14 +71,12 @@ public class Federacion {
             }*/
 
         }
-
-
         ArrayList<ProductorPeque> miembrosFederacion = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
         do {
             System.out.print("Ingrese el id del productor: ");
             int idProductor = scanner.nextInt();
-            miembrosFederacion.add((ProductorPeque) productor.get(idProductor));
+            miembrosFederacion.add((ProductorPeque) Productor.getListaProductores().get(idProductor));
             System.out.print("Desea agregar otro mas? 1=si 2=no");
             int decision = scanner.nextInt();
             if (decision == 2){
@@ -78,9 +84,9 @@ public class Federacion {
             }
         }while (fin);
 
-        listaFederados.add(new Federacion("Federacion Algodon",miembrosFederacion));
+        return miembrosFederacion;
     }
-    public void mostrarFederados(){
+    public static void mostrarFederados(){
         for ( Federacion nombreFederacion:listaFederados 
              ) {
             System.out.println("Nombre: " + nombreFederacion.getNombre());
