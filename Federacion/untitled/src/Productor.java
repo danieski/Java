@@ -8,14 +8,14 @@ public class Productor {
 
     public Productor(String nombre,ArrayList<Hectareas> hectareas) {
         this.nombre = nombre;
-        this.hectareas=hectareas;
+        this.hectareas=new ArrayList<>();
     }
 
     public String getNombre(){
         return nombre;
     }
 
-    public ArrayList<Hectareas> getHectareas() {
+    public static ArrayList<Hectareas> getHectareas() {
         return hectareas;
     }
 
@@ -60,7 +60,7 @@ public class Productor {
         ArrayList<Hectareas> hectareasNuevoProductor =agregarHectareas();
         for ( Hectareas listaHectareasProductor:hectareasNuevoProductor
              ) {
-            hectareasTotalesProductor+=listaHectareasProductor.getHectareas();
+            hectareasTotalesProductor+=listaHectareasProductor.getHectarea();
         }
         if (hectareasTotalesProductor<5){
             return new ProductorPeque(nombre,hectareasNuevoProductor);
@@ -76,7 +76,7 @@ public class Productor {
             System.out.println(id + " " +productor.getNombre() + " " + productor.getClass());
             for (Hectareas productoHectareas: productor.hectareas
                  ) {
-                System.out.println(productoHectareas.getProducto().getNombre() + " " + productoHectareas.getHectareas());
+                System.out.println(productoHectareas.getProducto().getNombre() + " " + productoHectareas.getHectarea());
             }
             id++;
         }

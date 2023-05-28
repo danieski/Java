@@ -24,9 +24,7 @@ public class ProductorPeque extends Productor  {
         return super.getNombre();
     }
 
-    public ArrayList<Hectareas> getHectareas() {
-        return hectareas;
-    }
+
 
 
 

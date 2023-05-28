@@ -51,9 +51,9 @@ public class Federacion {
 
                 //Acceso a lista de hectarea erroneo no me deja hhacer nada aqui
                 for (Hectareas hectareasProductorPeque: productores.getHectareas()
-                     ) {/*
+                     ) {
                     //System.out.println(hectareasProductorPeque.getProducto());
-                    System.out.println(hectareasProductorPeque.getHectareas() + "he");
+                    System.out.println(hectareasProductorPeque.getHectarea() + "he");
                     /*
                     if(hectareasProductorPeque.getProducto().equals(productoSeleccionado)){
                         System.out.println(idProductorProductoSeleccionado + " " + productores.getNombre());

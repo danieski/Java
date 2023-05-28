@@ -2,24 +2,17 @@ import java.util.ArrayList;
 
 public class Hectareas {
 
-    private static ArrayList<Hectareas> listaHectareas=new ArrayList<>();
+    //private static ArrayList<Hectareas> listaHectareas=new ArrayList<>();
 
     private static Producto producto;
-    private double hectareas;
+    private double hectarea;
 
-    public Hectareas(Producto producto, double hectareas) {
+    public Hectareas(Producto producto, double hectarea) {
 
         this.producto = producto;
-        this.hectareas = hectareas;
+        this.hectarea = hectarea;
     }
 
-    public ArrayList<Hectareas> getListaHectareas() {
-        return listaHectareas;
-    }
-
-    public void setListaHectareas(ArrayList<Hectareas> listaHectareas) {
-        this.listaHectareas = listaHectareas;
-    }
 
     public static Producto getProducto() {
         return producto;
@@ -29,17 +22,10 @@ public class Hectareas {
         this.producto = producto;
     }
 
-    public double getHectareas() {
-        return hectareas;
+    public double getHectarea() {
+        return hectarea;
     }
 
-    public void setHectareas(double hectareas) {
-        this.hectareas = hectareas;
-    }
 
-    public void agregarHectareas(){
 
-        listaHectareas.add(new Hectareas(producto.getListaProductos().get(0),5));
-
-    }
 }
