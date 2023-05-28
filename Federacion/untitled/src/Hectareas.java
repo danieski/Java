@@ -2,7 +2,7 @@ import java.util.ArrayList;
 
 public class Hectareas {
 
-    private static ArrayList<Hectareas> listaHectareas=new ArrayList<>();
+    ArrayList<Hectareas> listaHectareas=new ArrayList<>();
     private ProductorPeque productorPeque;
 
     private Producto producto;

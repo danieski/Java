@@ -76,7 +76,7 @@ public class Pedidos {
         //Seleecicionamos y almacinamos su id
         int idCliente = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el ID del cliente: "));
         //Producos
-        //Producto.getListaProductos(listaProductos);
+        Producto.getListaProductos(listaProductos);
         int idProducto = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el ID del producto: "));
         //Ponemos una fecha
         // Crear un objeto Calendar

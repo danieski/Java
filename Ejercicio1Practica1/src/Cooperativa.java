@@ -8,7 +8,7 @@ public class Cooperativa {
     //public static LocalDate fechaLocal = LocalDate.of(2023, 1, 1);
     //private static ArrayList<Federacion> federados= new ArrayList<>();;
     public static ArrayList<Productor> productores = new ArrayList<>();
-
+    public static ArrayList<Producto> productos = new ArrayList<>();
     public static ArrayList<Hectareas> areasProductivas = new ArrayList<>();
 
 
@@ -33,23 +33,32 @@ public class Cooperativa {
         //Arrays de dobles para el historial de precios
         ;
         //Creamos un objeto producto para el testing
+        productos.add(new Producto("Manzana",1,true,1,1,1,Producto.getHistorialPrecios()));
+        productos.add(new Producto("Pera",1,true,1,1,0.7,Producto.getHistorialPrecios()));
+        productos.add(new Producto("Fresa",1,true,1,1,0.5,Producto.getHistorialPrecios()));
+        productos.add(new Producto("Algodon",2.5,false,1,1.,0.5,Producto.getHistorialPrecios()));
+        productos.add(new Producto("Aceitunas",2.5,true,1,1,1.4,Producto.getHistorialPrecios()));
+        productos.add(new Producto("Aceite",2.5,false,1,1,0.5,Producto.getHistorialPrecios()));
 
+        //Ceamos un objeto areaProducto para el testing
 
+        areasProductivas.add(new Hectareas("Productor Grande",productos.get(0),12));
+        areasProductivas.add(new Hectareas("Productor Grande",productos.get(1),21));
+        areasProductivas.add(new Hectareas("Dani",productos.get(2),2));
+        areasProductivas.add(new Hectareas("Dani",productos.get(0),3));
+        areasProductivas.add(new Hectareas("Productor Peque",productos.get(3),3));
+        areasProductivas.add(new Hectareas("Productor Peque",productos.get(0),1));
+        areasProductivas.add(new Hectareas("Alvaro",productos.get(4),6));
+        areasProductivas.add(new Hectareas("Alvaro",productos.get(1),7));
+        areasProductivas.add(new Hectareas("_fProductor Peque",productos.get(0),7));
+        areasProductivas.add(new Hectareas("_fDani",productos.get(0),7));
         //Creamos un objeto productor para el testing
-        //Producto producto = new Producto();
-        //Producto
-        Producto Platano = new Producto("Platano",1,true,1,1,1);
-        //Lista Productos
-        Producto.getListaProductos().add(Platano);
-        //Hectareas de cada Productor
-        Hectareas PlatanosDani = new Hectareas("Dani",Platano,2);
-        //Listas de hectareas de cada productor
-        ArrayList<Hectareas> hectareasDani = new ArrayList<>();
-        hectareasDani.add(PlatanosDani);
-        //Productor Peque
-        ProductorPeque productorPeque = new ProductorPeque();
-        productorPeque.getListaProductoresPeques().add(new ProductorPeque("Dani",hectareasDani));
+        productores.add(new ProductorPeque("Dani",areasProductivas));
+        productores.add(new ProductorGrande("Alvaro",areasProductivas));
+        productores.add(new ProductorPeque("Productor Peque",areasProductivas));
 
+        //Creamos un objeto Productor grande
+        productores.add(new ProductorGrande("Productor Grande",areasProductivas ));
 
 
         //Federacion.getProductoresFederados
@@ -64,7 +73,7 @@ public class Cooperativa {
     private static void cambiarPrecios(ArrayList<Producto> productos, ArrayList<Double> historialPrecios) {
         boolean otravez=true;
         System.out.println("Revision precio productos");
-        Producto.mostrarProductos();
+        Producto.getListaProductos(productos);
 
         do {
 
@@ -106,7 +115,7 @@ public class Cooperativa {
                     fechaPrecios = nuevaFecha;
 
                     //Cambiamos los precios.
-                    //cambiarPrecios(productos,Producto.getHistorialPrecios());
+                    cambiarPrecios(productos,Producto.getHistorialPrecios());
 
                 } else {
                     System.out.println("La fecha actual es igual a la fecha precios");
@@ -129,15 +138,15 @@ public class Cooperativa {
             switch (opcion) {
                 case 1:
                     System.out.println("Ha seleccionado la opción 1");
-                   // Productor.agregarProductor(productores, productos, areasProductivas);
+                    Productor.agregarProductor(productores, productos, areasProductivas);
                     break;
                 case 2:
                     System.out.println("Ha seleccionado la opción 2");
-                   // Producto.AgregarProducto(productos,Producto.getHistorialPrecios());
+                    Producto.AgregarProducto(productos,Producto.getHistorialPrecios());
                     break;
                 case 3:
                     System.out.println("Ha seleccionado la opción 3");
-                    Federacion.agregarFederacion();
+                    Federacion.agregarFederacion(productos);
                     break;
                 case 4:
                     System.out.println("Ha seleccionado la opción 4");
@@ -149,7 +158,7 @@ public class Cooperativa {
                     break;
                 case 6:
                     System.out.println("Ha seleccionado la opción 6");
-                    Producto.mostrarProductos();
+                    Producto.getListaProductos(productos);
                     break;
                 case 7:
                     System.out.println("Ha seleccionado la opción 7");
@@ -180,7 +189,7 @@ public class Cooperativa {
                             break;
                 case 9:
                     System.out.println("Ha seleccionado la opción 9");
-                    //Pedidos.generarPedido(Cliente.getListaClientes(),productos);
+                    Pedidos.generarPedido(Cliente.getListaClientes(),productos);
                     break;
 
                         case 0:

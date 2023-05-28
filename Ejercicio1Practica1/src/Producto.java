@@ -2,8 +2,8 @@ import javax.swing.*;
 import java.util.ArrayList;
 
 public class Producto {
-    private static ArrayList<Producto> ListaProductos = new ArrayList<>();
 
+    public static double[] getHistorialPrecios;
     private String nombre;
     private double rendimiento;
     private boolean predecedero;
@@ -13,24 +13,19 @@ public class Producto {
     private double precio;
     static ArrayList<Double> historialPrecios = new ArrayList<>();
 
-    private ArrayList<Producto> listaProductos=new ArrayList<>();
-    public Producto(String nombre, double rendimiento, boolean predecedero, double ventaTotal, double cosechaTotal, double precio ) {
+
+    public Producto(String nombre, double rendimiento, boolean predecedero, double ventaTotal, double cosechaTotal, double precio, ArrayList historialPrecios ) {
         this.nombre = nombre;
         this.rendimiento = rendimiento;
         this.predecedero = predecedero;
         this.ventaTotal = ventaTotal;
         this.cosechaTotal = cosechaTotal;
         this.precio=precio;
-
+        this.historialPrecios=historialPrecios;
     }
-    public Producto(){}
 
     public boolean isPredecedero() {
         return predecedero;
-    }
-
-    public static ArrayList<Producto> getListaProductos() {
-        return ListaProductos;
     }
 
     public static ArrayList<Double> getHistorialPrecios() {
@@ -78,11 +73,11 @@ public class Producto {
                 esPedecedero = false;
             }
 
-        productos.add(new Producto(productoNuevo,rendimientoProducto,esPedecedero,ventaTotal,cosechaTotal,precio));
+        productos.add(new Producto(productoNuevo,rendimientoProducto,esPedecedero,ventaTotal,cosechaTotal,precio,historialPrecio));
     }
-    public static void mostrarProductos(){
+    public static void getListaProductos(ArrayList<Producto> productos){
         int idProducto=0;
-        for (Producto nombreProducto:ListaProductos) {
+        for (Producto nombreProducto:productos) {
 
             System.out.println(idProducto + " - " + nombreProducto.getNombre());
             idProducto++;

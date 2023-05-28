@@ -30,13 +30,30 @@ public abstract class Productor {
 
     public abstract String getDatos();
     public static void getProductores(ArrayList<Productor> productores,ArrayList<Hectareas> areasProductivos){
-        ProductorPeque productorPeque = new ProductorPeque();
-        productorPeque.mostrarListaProductoresPeques();
+        System.out.println( "Lista de Productores:");
+        for (Productor productor : productores) { //creo una variable productor que es el objeto con su productor y con su array de objetos areas
+            System.out.println("Productor: " + productor.getNombre()); //imprimo el nombre del primer productor
+            if (productor instanceof ProductorPeque) {//identifico que es grande o pequenio
+                System.out.println("Tipo Peque");
+            }
+            if (productor instanceof ProductorGrande){
+                System.out.println("Tipo Grande");
+            }
+            //Mostramos la lista de areaProductivo asociada al productor corresondiente
+            System.out.println("Productos:");
+            for (Hectareas area : areasProductivos) {
+                if (area.getNombreProductor() == productor.getNombre()) {
+                    System.out.println(area.getProductoNombre() + " - " + area.getArea() + " ha");
+                }
+            }
+            System.out.println();
+        }
+        System.out.println();
     }
 
 
-    public static void agregarProductor(ArrayList<Productor> productores,ArrayList<Producto> productos,ArrayList<Hectareas> areasProductivos) {
-      /*  boolean agregarOtro = true;
+    public static void agregarProductor(ArrayList<Productor> productores,ArrayList<Producto> productos,ArrayList<Hectareas> areasProductivos){
+        boolean agregarOtro = true;
         int contador = 0;
         String productorNuevo = JOptionPane.showInputDialog("Ingrese el nombre del productor:");
         do{
@@ -75,7 +92,7 @@ public abstract class Productor {
             contador++;
         }while(agregarOtro);
 
-    }*/
     }
+
 }
 

@@ -31,7 +31,7 @@ public class Federacion {
         this.listaFederados = listaFederados;
     }
 
-    public void agregarFederados(ArrayList<Productor> productor){
+    public void agregarFederados(ArrayList<ProductorPeque> productorPeque){
         boolean fin=true;
 
         ArrayList<ProductorPeque> miembrosFederacion = new ArrayList<>();
@@ -39,7 +39,7 @@ public class Federacion {
         do {
             System.out.print("Ingrese el id del productor: ");
             int idProductor = scanner.nextInt();
-            miembrosFederacion.add((ProductorPeque) productor.get(idProductor));
+            miembrosFederacion.add(productorPeque.get(idProductor));
             System.out.print("Desea agregar otro mas? 1=si 2=no");
             int decision = scanner.nextInt();
             if (decision == 2){
